@@ -1,21 +1,35 @@
-# React + TypeScript + Vite
+.app-container {
+  max-width: 900px;
+  margin: 40px auto;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+input {
+  padding: 10px;
+  width: 60%;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
 
-While this project uses React, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
 
-## Deploy Your Own
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
 
-Deploy your own Vite project with Vercel.
+th {
+  background: #007bff;
+  color: white;
+}
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/framework-boilerplates/vite-react&template=vite-react)
-
-_Live Example: https://vite-react-example.vercel.app_
-
-### Deploying From Your Terminal
-
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
-
-```shell
-$ vercel
-```
+tr:hover {
+  background: #f1f1f1;
+}
