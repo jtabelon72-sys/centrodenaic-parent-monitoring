@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [search, setSearch] = useState("");
+
+  const data = [
+    { subject: "Science 8", type: "Performance Task", title: "Investigatory Project", status: "Pending", due: "Nov 5" },
+    { subject: "Math 8", type: "Quiz", title: "Linear Equations", status: "Submitted", due: "Nov 4" },
+    { subject: "English 8", type: "Essay", title: "My Dream Future", status: "Missing", due: "Nov 3" },
+  ];
+
+  const filtered = data.filter((item) =>
+    item.subject.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app-container">
+      <h1>Centro de Naic National High School</h1>
+      <h2>Grade 8 Science Dashboard</h2>
+
+      <input
+        type="text"
+        placeholder="Search subject..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      <table>
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Activity Type</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Due Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filtered.map((item, i) => (
+            <tr key={i}>
+              <td>{item.subject}</td>
+              <td>{item.type}</td>
+              <td>{item.title}</td>
+              <td>{item.status}</td>
+              <td>{item.due}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
-export default App
+export default App;
